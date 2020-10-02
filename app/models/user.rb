@@ -8,10 +8,8 @@ class User < ApplicationRecord
     # Validação do formato do email através de uma espressão regular
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
 
-    validades :name, presence: true, length: { maximun: 50 }
-    validades :password, length: {minimum:6}
-    validades :email, presence:true, length: {maximum:255},
-                                    format: {with: VALID_EMAIL_REGEX},
-                                    uniqueness: {case_sensitive: true}
+    validates :nome, presence: true, length: { maximum:50}
+    validates :password, length: {minimum:6}
+    validates :email, presence: true, length: {maximum:255}, format: {with: VALID_EMAIL_REGEX}, uniqueness: {case_sensitive: true}
 
 end
